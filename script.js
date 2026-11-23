@@ -1,16 +1,16 @@
 /* 다음 주 DB 연결 시 PRODUCTS, GRADES 및 state 저장 로직을 API로 교체하세요. */
 const PRODUCTS=[
-{id:1,name:'클래식 네이비 장우산',category:'장우산',price:18000,stock:30,description:'깊은 네이비 컬러와 우드 손잡이가 돋보이는 클래식 장우산.',image:'img/product-1.jpg'},
-{id:2,name:'실버 라인 3단우산',category:'3단우산',price:22000,stock:40,description:'은은한 실버 원단과 휴대용 케이스가 어울리는 접이식 우산.',image:'img/product-2.jpg'},
-{id:3,name:'투명 버블 장우산',category:'장우산',price:15000,stock:50,description:'시야가 넓고 빗방울이 돋보이는 투명 돔형 장우산.',image:'img/product-3.jpg'},
-{id:4,name:'원터치 블랙 자동우산',category:'자동우산',price:24000,stock:35,description:'모던한 블랙 컬러와 편리한 자동 개폐 손잡이가 특징.',image:'img/product-4.jpg'},
-{id:5,name:'미니 포켓 3단우산',category:'3단우산',price:16000,stock:45,description:'스트라이프 패턴의 작고 가벼운 휴대용 3단우산.',image:'img/product-5.jpg'},
-{id:6,name:'샌드베이지 암막 양산',category:'양산',price:27000,stock:25,description:'섬세한 레이스 디테일이 돋보이는 베이지 양산.',image:'img/product-6.jpg'},
-{id:7,name:'딥블루 자동우산',category:'자동우산',price:29000,stock:20,description:'깊은 블루 컬러와 넓은 캐노피가 매력적인 자동우산.',image:'img/product-7.jpg'},
-{id:8,name:'펄그레이 UV 양산',category:'양산',price:24000,stock:30,description:'은은한 펄그레이 컬러와 플라워 장식의 UV 양산.',image:'img/product-8.jpg'}
+{id:1,name:'클래식 네이비 장우산',category:'장우산',price:18000,stock:30,description:'깊은 네이비 컬러와 우드 손잡이가 돋보이는 클래식 장우산.',image:'product-1.jpg'},
+{id:2,name:'실버 라인 3단우산',category:'3단우산',price:22000,stock:40,description:'은은한 실버 원단과 휴대용 케이스가 어울리는 접이식 우산.',image:'product-2.jpg'},
+{id:3,name:'투명 버블 장우산',category:'장우산',price:15000,stock:50,description:'시야가 넓고 빗방울이 돋보이는 투명 돔형 장우산.',image:'product-3.jpg'},
+{id:4,name:'원터치 블랙 자동우산',category:'자동우산',price:24000,stock:35,description:'모던한 블랙 컬러와 편리한 자동 개폐 손잡이가 특징.',image:'product-4.jpg'},
+{id:5,name:'미니 포켓 3단우산',category:'3단우산',price:16000,stock:45,description:'스트라이프 패턴의 작고 가벼운 휴대용 3단우산.',image:'product-5.jpg'},
+{id:6,name:'샌드베이지 암막 양산',category:'양산',price:27000,stock:25,description:'섬세한 레이스 디테일이 돋보이는 베이지 양산.',image:'product-6.jpg'},
+{id:7,name:'딥블루 자동우산',category:'자동우산',price:29000,stock:20,description:'깊은 블루 컬러와 넓은 캐노피가 매력적인 자동우산.',image:'product-7.jpg'},
+{id:8,name:'펄그레이 UV 양산',category:'양산',price:24000,stock:30,description:'은은한 펄그레이 컬러와 플라워 장식의 UV 양산.',image:'product-8.jpg'}
 ];
 const GRADES=[{name:'SILVER',min:0,rate:.01},{name:'GOLD',min:100000,rate:.03},{name:'PLATINUM',min:300000,rate:.05},{name:'DIAMOND',min:700000,rate:.07}];
-const HEROES=[{image:'img/hero-1.jpg',title:'비 오는 날도,<br>더 특별하게',desc:'당신의 하루에 어울리는 프리미엄 우산'},{image:'img/hero-2.jpg',title:'일상을 지키는<br>품격 있는 선택',desc:'감각적인 네이비 컬렉션'},{image:'img/hero-3.jpg',title:'가벼운 외출에도<br>확실한 존재감',desc:'실용성과 스타일을 모두 담은 디자인'},{image:'img/hero-4.jpg',title:'당신만의 계절을<br>완성하다',desc:'매일 들고 싶은 특별한 우산'}];
+const HEROES=[{image:'hero-1.jpg',title:'비 오는 날도,<br>더 특별하게',desc:'당신의 하루에 어울리는 프리미엄 우산'},{image:'hero-2.jpg',title:'일상을 지키는<br>품격 있는 선택',desc:'감각적인 네이비 컬렉션'},{image:'hero-3.jpg',title:'가벼운 외출에도<br>확실한 존재감',desc:'실용성과 스타일을 모두 담은 디자인'},{image:'hero-4.jpg',title:'당신만의 계절을<br>완성하다',desc:'매일 들고 싶은 특별한 우산'}];
 const KEY='silverUmbrellaFreshV1';
 let state;try{state=JSON.parse(localStorage.getItem(KEY))||{users:[],current:null,carts:{},orders:[]}}catch{state={users:[],current:null,carts:{},orders:[]}};
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],won=n=>Number(n).toLocaleString('ko-KR')+'원',save=()=>localStorage.setItem(KEY,JSON.stringify(state));
